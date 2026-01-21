@@ -1,0 +1,15 @@
+---
+whiskers:
+  version: ^2.0.0
+  filename: "palette.py"
+---
+
+palette = {
+  {%- for _, variant in flavors %}
+  "{{variant.identifier}}": {
+  {%- for _, color in variant.colors %}
+    "{{color.identifier}}": "#{{color.hex}}",
+  {%- endfor %}
+  },
+  {%- endfor %}
+}
